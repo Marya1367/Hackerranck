@@ -1,0 +1,38 @@
+func isValid(s: String) -> String {
+       let arr = Array(s)
+    var dict: [String:Int] = [:]
+   
+    
+    for c in arr {
+        dict[String(c)] = (dict[String(c)] ?? 0) + 1
+    }
+    
+    var frequency = dict.first?.value ?? 0
+    var exceptation = false
+    
+    for item in dict {
+        if !exceptation {
+            switch item.value {
+            case frequency:
+                break
+            case (frequency+1):
+                exceptation = true
+                break
+            case 1 :
+                exceptation = true
+                break
+            default:
+                return("NO")
+            }
+        }else{
+            if item.value == frequency {
+                
+            }else{
+                return("NO")
+            }
+        }
+    }
+    
+    return("YES")
+
+}
